@@ -1,4 +1,4 @@
-# @apppay/react
+# apppay-react
 
 A React component for accepting cryptocurrency payments with cross-chain support. Simple, secure, and powerful.
 
@@ -12,26 +12,38 @@ A React component for accepting cryptocurrency payments with cross-chain support
 - 📱 **Responsive**: Works on all devices
 - 🔑 **No API Keys**: Everything works with payment IDs only
 
+[![npm version](https://badge.fury.io/js/apppay-react.svg)](https://badge.fury.io/js/apppay-react)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## Installation
 
 ```bash
-npm install @apppay/react
+npm install apppay-react
 ```
 
 **Note:** Thirdweb is bundled with this package - no need to install it separately!
 
+### Key Features
+
+- ✅ **Zero Configuration**: Just import and use - no setup required
+- ✅ **Embedded ThirdwebProvider**: Wallet connectivity built-in
+- ✅ **Complete Wallet Integration**: Connect button and wallet management included
+- ✅ **Production Ready**: Uses `api.apppay.ai` and `ws.apppay.ai` endpoints
+- ✅ **Secure**: Payment ID-based authentication
+- ✅ **Customizable**: Full styling and theming support
+- ✅ **TypeScript**: Full type definitions included
+
 ## Quick Start
 
 ```tsx
-import { PaymentModal } from '@apppay/react';
-import { ThirdwebProvider } from 'thirdweb/react';
+import { PaymentModal } from 'apppay-react';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
   const paymentId = 'pay_1234567890'; // Get this from your backend
 
   return (
-    <ThirdwebProvider>
+    <div>
       <button onClick={() => setIsOpen(true)}>
         Pay Now
       </button>
@@ -45,11 +57,25 @@ function App() {
           setIsOpen(false);
         }}
         theme="dark"
+        style={{
+          borderRadius: '16px',
+          boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
+        }}
       />
-    </ThirdwebProvider>
+    </div>
   );
 }
 ```
+
+### Complete Flow
+
+1. **Click "Pay Now"** → Modal opens
+2. **Connect Wallet** → Thirdweb connect button appears if no wallet connected
+3. **Find Routes** → System discovers available payment routes
+4. **Select Route** → Choose preferred payment method
+5. **Execute Payment** → Complete the transaction
+
+The PaymentModal handles everything automatically - wallet connection, route discovery, and payment execution.
 
 ## API Reference
 
@@ -118,21 +144,9 @@ const response = await fetch('https://api.apppay.ai/api/mcp/create-payment', {
 const { paymentId } = await response.json();
 ```
 
-## Thirdweb Setup
+## Thirdweb Integration
 
-Make sure to wrap your app with ThirdwebProvider:
-
-```tsx
-import { ThirdwebProvider } from 'thirdweb/react';
-
-function App() {
-  return (
-    <ThirdwebProvider>
-      {/* Your app components */}
-    </ThirdwebProvider>
-  );
-}
-```
+ThirdwebProvider is automatically included in the PaymentModal component. You don't need to set up anything additional - just use the PaymentModal component directly in your app!
 
 ## Customization
 
@@ -227,7 +241,7 @@ style={{
 ### Using Hooks Directly
 
 ```tsx
-import { useRouteDiscovery, usePaymentExecution, AppPayAPI } from '@apppay/react';
+import { useRouteDiscovery, usePaymentExecution, AppPayAPI } from 'apppay-react';
 
 function CustomPaymentFlow() {
   const api = new AppPayAPI();
@@ -261,10 +275,73 @@ The modal handles common errors automatically:
 - Safari 13+
 - Edge 80+
 
+## Development & Local Testing
+
+### Local Development Workflow
+
+For faster iteration during development, you can test your changes locally before publishing:
+
+#### 1. Build the Package
+```bash
+cd npm/apppay/react
+npm run build
+```
+
+#### 2. Link the Local Package
+```bash
+# In the npm package directory
+npm run link
+```
+
+#### 3. Link in Test App
+```bash
+# In your test consumer app directory
+npm uninstall apppay-react  # Remove npm version
+npm link apppay-react       # Link local version
+```
+
+#### 4. Test Locally
+```bash
+# In your test consumer app directory
+npm run dev
+```
+
+#### 5. Make Changes
+Edit files in `npm/apppay/react/src/` and rebuild:
+```bash
+cd npm/apppay/react
+npm run build  # Changes will appear in test app immediately
+```
+
+#### 6. Unlink When Done
+```bash
+# In test consumer app
+npm unlink apppay-react
+npm install apppay-react@latest  # Install published version
+```
+
+### Publishing Workflow
+
+```bash
+# Bump version in package.json
+npm version patch  # or minor/major
+
+# Build and publish
+npm run build
+npm publish
+
+# Verify
+npm view apppay-react version
+```
+
 ## Contributing
 
-This package is part of the AppPay ecosystem. For contributions or issues, please visit our main repository.
+This package is part of the AppPay ecosystem. For contributions or issues, please visit:
+
+- **Repository**: [https://github.com/apppayai/react](https://github.com/apppayai/react)
+- **Issues**: [https://github.com/apppayai/react/issues](https://github.com/apppayai/react/issues)
+- **NPM**: [https://www.npmjs.com/package/apppay-react](https://www.npmjs.com/package/apppay-react)
 
 ## License
 
-MIT © AppPay
+MIT © AppPay Team

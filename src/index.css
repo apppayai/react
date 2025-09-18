@@ -1,0 +1,352 @@
+/* AppPay Payment Modal Styles */
+.apppay-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 1rem;
+}
+
+.apppay-modal-container {
+  position: relative;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.apppay-modal-container.dark {
+  background: #1e293b;
+  color: white;
+}
+
+.apppay-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.apppay-modal-header.dark {
+  border-bottom-color: #374151;
+}
+
+.apppay-modal-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.apppay-close-button {
+  color: #6b7280;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  line-height: 1;
+}
+
+.apppay-close-button:hover {
+  color: #374151;
+}
+
+.apppay-close-button.dark:hover {
+  color: #d1d5db;
+}
+
+.apppay-loading {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.apppay-spinner {
+  animation: spin 1s linear infinite;
+  border-radius: 50%;
+  height: 2rem;
+  width: 2rem;
+  border: 2px solid transparent;
+  border-top-color: #3b82f6;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.apppay-error {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.apppay-error-icon {
+  color: #ef4444;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.apppay-payment-info {
+  background: #f9fafb;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.apppay-payment-info.dark {
+  background: #374151;
+}
+
+.apppay-wallet-section {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.apppay-connect-button {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 24px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+.apppay-connect-button:hover {
+  background-color: #1d4ed8;
+}
+
+.apppay-features {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  margin-top: 1rem;
+}
+
+.apppay-features.dark {
+  background: #374151;
+}
+
+.apppay-features-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.apppay-feature-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: #6b7280;
+}
+
+.apppay-feature-item.dark {
+  color: #9ca3af;
+}
+
+.apppay-feature-dot {
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 50%;
+}
+
+.apppay-feature-dot.green {
+  background-color: #10b981;
+}
+
+.apppay-feature-dot.blue {
+  background-color: #3b82f6;
+}
+
+.apppay-feature-dot.purple {
+  background-color: #8b5cf6;
+}
+
+.apppay-feature-dot.orange {
+  background-color: #f59e0b;
+}
+
+.apppay-button {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s;
+}
+
+.apppay-button.primary {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.apppay-button.primary:hover {
+  background-color: #2563eb;
+}
+
+.apppay-button.primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.apppay-button.success {
+  background-color: #10b981;
+  color: white;
+}
+
+.apppay-button.success:hover {
+  background-color: #059669;
+}
+
+.apppay-button.success:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.apppay-route {
+  padding: 0.75rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  transition: all 0.2s;
+}
+
+.apppay-route:hover {
+  border-color: #d1d5db;
+}
+
+.apppay-route.selected {
+  border-color: #3b82f6;
+  background-color: #eff6ff;
+}
+
+.apppay-route.dark {
+  border-color: #374151;
+  background-color: #1f2937;
+}
+
+.apppay-route.dark:hover {
+  border-color: #4b5563;
+}
+
+.apppay-route.dark.selected {
+  border-color: #3b82f6;
+  background-color: #1e3a8a;
+}
+
+.apppay-route-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apppay-route-provider {
+  font-weight: 500;
+}
+
+.apppay-route-details {
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.apppay-route.dark .apppay-route-details {
+  color: #9ca3af;
+}
+
+.apppay-route-badge {
+  font-size: 0.75rem;
+  background-color: #dcfce7;
+  color: #166534;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.apppay-steps {
+  margin-top: 0.5rem;
+}
+
+.apppay-step {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.apppay-step-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+}
+
+.apppay-step-dot.completed {
+  background-color: #10b981;
+}
+
+.apppay-step-dot.processing {
+  background-color: #3b82f6;
+  animation: pulse 2s infinite;
+}
+
+.apppay-step-dot.failed {
+  background-color: #ef4444;
+}
+
+.apppay-step-dot.pending {
+  background-color: #d1d5db;
+}
+
+.apppay-step-text.completed {
+  color: #059669;
+}
+
+.apppay-step-text.processing {
+  color: #2563eb;
+}
+
+.apppay-step-text.failed {
+  color: #dc2626;
+}
+
+.apppay-step-text.pending {
+  color: #6b7280;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.apppay-error-message {
+  color: #ef4444;
+  font-size: 0.875rem;
+  text-align: center;
+  margin-top: 0.5rem;
+}

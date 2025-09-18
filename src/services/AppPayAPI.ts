@@ -5,20 +5,20 @@ export class AppPayAPI {
   private wsBaseUrl: string;
 
   constructor() {
-    // Use environment variables if available, otherwise use defaults
-    // In development, use localhost:3082 from .env.local
-    // In production, use api.apppay.ai
-    const isDevelopment = typeof window !== 'undefined' &&
-      (window.location.hostname === 'localhost' ||
-       window.location.hostname === '127.0.0.1' ||
-       window.location.hostname.includes('localhost'));
+    // Detect environment and use appropriate URLs
+    const isDevelopment = typeof window !== 'undefined' && (
+      window.location.hostname === 'localhost' ||
+      window.location.hostname === '127.0.0.1' ||
+      window.location.hostname.includes('localhost') ||
+      window.location.hostname === '0.0.0.0'
+    );
 
     if (isDevelopment) {
-      // Development: use localhost
+      // Use localhost for development testing
       this.apiBaseUrl = 'http://localhost:3082';
       this.wsBaseUrl = 'ws://localhost:3084';
     } else {
-      // Production: use AppPay domains
+      // Use production domains
       this.apiBaseUrl = 'https://api.apppay.ai';
       this.wsBaseUrl = 'wss://ws.apppay.ai';
     }
