@@ -1,6 +1,6 @@
 {
   "name": "apppay-react",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "React payment modal component for AppPay - Accept cryptocurrency payments with cross-chain support",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
